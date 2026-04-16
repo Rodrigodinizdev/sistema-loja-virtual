@@ -13,5 +13,7 @@ public class CategoriaRepository : ICategoriaRepository
     
     public List<Categoria> ListarCategoriasAtivas() => _categorias.Where(c => c.EstadoCategoria == EstadoCategoriaEnum.Ativo).ToList();
     public List<Categoria> ListarCategorias() => _categorias;
+
+    public Categoria BuscarCategoriaPeloId(int id) => _categorias.FirstOrDefault(c => c.Id == id);
    
 }

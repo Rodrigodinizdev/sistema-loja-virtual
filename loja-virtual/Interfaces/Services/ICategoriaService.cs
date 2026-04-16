@@ -6,4 +6,5 @@ namespace loja_virtual.Interfaces.Services;
     {
         void CriarCategoria(CategoriaDTO dto);
         List<Categoria> ListarCategorias();
+
     }

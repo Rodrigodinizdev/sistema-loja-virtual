@@ -7,5 +7,6 @@ namespace loja_virtual.Interfaces.Repositories;
         void AdicionarCategoria(Categoria categoria);
         List<Categoria> ListarCategoriasAtivas();
         Categoria BuscarCategoriaPeloNome(string nome);
-        List<Categoria> ListarCategorias();
+        Categoria BuscarCategoriaPeloId(int id)
+;        List<Categoria> ListarCategorias();
     }

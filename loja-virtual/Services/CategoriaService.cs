@@ -16,7 +16,6 @@ public class CategoriaService(ICategoriaRepository categoriaRepository, Notifica
     {
         _notificacao.Limpar();
 
-        Console.Clear();
         var categoria = _categoriaRepository.BuscarCategoriaPeloNome(dto.Nome);
 
         if(categoria != null)
@@ -34,8 +33,24 @@ public class CategoriaService(ICategoriaRepository categoriaRepository, Notifica
 
     public List<Categoria> ListarCategorias()
     {
-        throw new NotImplementedException();
-    }
+        _notificacao.Limpar();
 
-   
+        var categorias = _categoriaRepository.ListarCategoriasAtivas();
+
+        if (categorias.Count == 0)
+        {
+            _notificacao.AdicionarErro("Não existem categorias adicionadas");
+            _notificacao.ExibirNotificacao();
+            return [];
+        }
+
+        Console.WriteLine("=== CATEGORIAS ===");
+        foreach (var categoria in categorias)
+        {
+            _notificacao.AdicionarSucesso($"{categoria}");
+            _notificacao.ExibirNotificacao();
+        }
+        
+        return categorias;
+    }
 }
