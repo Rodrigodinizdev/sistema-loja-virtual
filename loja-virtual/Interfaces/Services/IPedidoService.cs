@@ -6,5 +6,5 @@ namespace loja_virtual.Interfaces.Services;
     {
         void CriarPedido(PedidoDTO dto);
         List<Pedido> ListarPedidos();
-        void BuscarPedidoPorID(int id);
+        Pedido BuscarPedidoPorID(int id);
     }
